@@ -24,7 +24,9 @@ const icons = {
   map:'M9 18 3 21V6l6-3 6 3 6-3v15l-6 3-6-3Zm0-15v15m6-12v15',
   clock:'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Zm0-15v5l3 2',
   message:'M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z',
-  pin:'M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Zm-8 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z'
+  pin:'M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Zm-8 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z',
+  leadership:'M4 21v-7a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v7M9 10V7a3 3 0 0 1 6 0v3M8 21v-4h8v4M4 4h4M16 4h4',
+  briefcase:'M4 7h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm4 0V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M2 12h20M10 12v2h4v-2'
 };
 
 function icon(name, cls='ui-icon'){
@@ -144,3 +146,47 @@ $('#contactForm').addEventListener('submit',e=>{e.preventDefault();const name=$(
 
 function showToast(message){const t=$('#toast');t.textContent=message;t.classList.add('show');clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>t.classList.remove('show'),3600)}
 $('#year').textContent=new Date().getFullYear();
+
+
+// Executive committee — shared data comes from executives.js.
+const executiveRoot = $('#executiveTrack');
+if (executiveRoot && Array.isArray(window.WEMACOOP_EXECUTIVES)) {
+  const executives = window.WEMACOOP_EXECUTIVES
+    .filter(item => item.current && item.featured)
+    .sort((a,b) => a.order - b.order);
+
+  executiveRoot.innerHTML = executives.map((person, index) => `
+    <article class="executive-card" data-executive-card>
+      <div class="executive-photo">
+        <img src="${person.image}" alt="Placeholder portrait for ${person.role}" loading="lazy" width="800" height="1000">
+        <span class="executive-role">${person.role}</span>
+      </div>
+      <div class="executive-body">
+        <p class="executive-index">0${index + 1}</p>
+        <h3>${person.name}</h3>
+        <div class="executive-portfolio">${icon('briefcase')}<span>${person.portfolio}</span></div>
+        <a href="leadership.html#${person.id}">View profile →</a>
+      </div>
+    </article>
+  `).join('');
+
+  const dotsRoot = $('#executiveDots');
+  if (dotsRoot) {
+    dotsRoot.innerHTML = executives.map((_, i) => `<button type="button" class="${i===0?'active':''}" aria-label="Show executive ${i+1}"></button>`).join('');
+    const dots = $$('#executiveDots button');
+    const cards = $$('[data-executive-card]', executiveRoot);
+    const updateExecutiveDots = () => {
+      if (!cards.length) return;
+      const left = executiveRoot.scrollLeft;
+      let idx = 0;
+      let best = Infinity;
+      cards.forEach((card,i) => {
+        const d = Math.abs(card.offsetLeft - executiveRoot.offsetLeft - left);
+        if (d < best) { best = d; idx = i; }
+      });
+      dots.forEach((dot,i)=>dot.classList.toggle('active', i===idx));
+    };
+    executiveRoot.addEventListener('scroll', () => requestAnimationFrame(updateExecutiveDots), {passive:true});
+    dots.forEach((dot,i)=>dot.addEventListener('click',()=>cards[i]?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'})));
+  }
+}
