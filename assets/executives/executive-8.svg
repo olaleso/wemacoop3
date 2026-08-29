@@ -1,20 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
-  <defs>
-    <linearGradient id="bg8" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#F6F0FA"/>
-      <stop offset="1" stop-color="#E5D6EF"/>
-    </linearGradient>
-    <linearGradient id="coat8" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#6D2B8A"/>
-      <stop offset="1" stop-color="#351443"/>
-    </linearGradient>
-  </defs>
-  <rect width="800" height="1000" fill="url(#bg8)"/>
-  <circle cx="400" cy="305" r="145" fill="#D6B08C"/>
-  <path d="M275 245c38-118 218-126 259 4-44-34-83-48-139-43-43 3-77 16-120 39Z" fill="#2E2433"/>
-  <path d="M160 1000c13-260 105-392 240-392s227 132 240 392H160Z" fill="url(#coat8)"/>
-  <path d="M330 606h140l-70 116-70-116Z" fill="#fff" opacity=".95"/>
-  <circle cx="690" cy="112" r="56" fill="#CB9C3E" opacity=".16"/>
-  <circle cx="690" cy="112" r="34" fill="#CB9C3E" opacity=".22"/>
-  <text x="400" y="925" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" fill="#fff" opacity=".78">PHOTO PLACEHOLDER</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-labelledby="t d">
+<title id="t">Executive portrait placeholder</title><desc id="d">Placeholder portrait for Public Relations Officer; replace with approved executive photograph.</desc>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4A1D6E"/><stop offset="1" stop-color="#25102F"/></linearGradient></defs>
+<rect width="800" height="1000" fill="url(#g)"/>
+<circle cx="400" cy="340" r="150" fill="#F3EAFB" opacity=".95"/>
+<path d="M145 870c32-190 133-290 255-290s223 100 255 290" fill="#F3EAFB" opacity=".95"/>
+<circle cx="650" cy="150" r="95" fill="#D9AF5B" opacity=".18"/>
+<circle cx="160" cy="820" r="140" fill="#8B4CC0" opacity=".17"/>
+<text x="400" y="930" text-anchor="middle" fill="#E8C877" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="2">PUBLIC RELATIONS OFFICER</text>
+<text x="400" y="430" text-anchor="middle" fill="#4A1D6E" font-family="Georgia, serif" font-size="74" font-weight="700">P R</text>
 </svg>

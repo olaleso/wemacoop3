@@ -63,3 +63,11 @@ Edit `executives.js` only. Example:
 ```
 
 Recommended portrait format: 4:5 aspect ratio, ideally 800×1000 px, exported as WebP for web performance.
+
+## Cloudflare Workers deployment fix
+
+This package includes `wrangler.jsonc` for Cloudflare Workers Static Assets. The site is a static HTML/CSS/JavaScript application and therefore does not need a Worker `main` script. Wrangler is configured to upload the repository root as the static asset directory.
+
+For a production branch, Cloudflare Workers Builds can use the default `npx wrangler deploy` command. For preview/non-production branches, the default `npx wrangler versions upload` command will now work because Wrangler can resolve the `assets.directory` from `wrangler.jsonc`.
+
+Keep `wrangler.jsonc` in the same directory that Cloudflare uses as the Workers Builds root directory.
