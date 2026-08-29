@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#25102F">
+  <meta name="description" content="WEMACOOP — Wema Bank Staff Multipurpose Cooperative Society. Savings, loans, shares and property opportunities for members since 1993.">
+  <title>WEMACOOP — Wema Bank Staff Multipurpose Cooperative Society</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/purple-villa.webp" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="WEMACOOP home">
+        <span class="brand-mark"><img src="assets/wema-mark.webp" alt="Wema Bank mark" width="44" height="44"></span>
+        <span class="brand-copy"><strong>WEMACOOP</strong><small>Wema Bank Staff Cooperative</small></span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#calculator">Calculator</a>
+        <a href="#projects">Projects</a>
+        <a href="#membership">Membership</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-ghost header-login" href="#contact">Member Login</a>
+        <a class="btn btn-gold header-join" href="#membership">Join Now</a>
+        <button class="menu-button" id="menuOpen" type="button" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobileMenu" aria-hidden="true">
+    <div class="drawer-top">
+      <a class="brand" href="#home">
+        <span class="brand-mark"><img src="assets/wema-mark.webp" alt="" width="44" height="44"></span>
+        <span class="brand-copy"><strong>WEMACOOP</strong><small>Staff Cooperative</small></span>
+      </a>
+      <button class="drawer-close" id="menuClose" type="button" aria-label="Close menu">×</button>
+    </div>
+    <nav class="drawer-nav" aria-label="Mobile navigation">
+      <a href="#about"><span>About WEMACOOP</span><em>01</em></a>
+      <a href="#products"><span>Products & Benefits</span><em>02</em></a>
+      <a href="#calculator"><span>Loan Calculator</span><em>03</em></a>
+      <a href="#projects"><span>Property Projects</span><em>04</em></a>
+      <a href="#membership"><span>Membership</span><em>05</em></a>
+      <a href="#resources"><span>Resources & FAQs</span><em>06</em></a>
+      <a href="#contact"><span>Contact</span><em>07</em></a>
+    </nav>
+    <div class="drawer-actions">
+      <a class="btn btn-outline-light" href="#contact">Member Login</a>
+      <a class="btn btn-gold" href="#membership">Become a Member</a>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="heroTitle">
+      <div class="hero-slides" id="heroSlides" aria-live="polite"></div>
+      <div class="hero-scrim"></div>
+      <div class="hero-glow"></div>
+
+      <div class="container hero-content">
+        <div class="hero-copy reveal">
+          <div class="hero-badge"><span>W</span> Registered Cooperative Multipurpose Society · Est. 1993</div>
+          <h1 id="heroTitle">Your money works harder <em>when we grow it together.</em></h1>
+          <p>WEMACOOP brings Wema Bank staff together around disciplined savings, member-friendly credit, shares and property opportunities designed to create lasting value.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold btn-lg" href="#membership">Become a Member</a>
+            <a class="btn btn-glass btn-lg" href="#calculator">Try Loan Calculator</a>
+          </div>
+        </div>
+
+        <div class="hero-project-card reveal" id="heroProjectCard">
+          <div class="hero-project-top">
+            <span class="project-kicker" id="heroProjectStatus">Featured project</span>
+            <span class="project-count" id="heroProjectCount">01 / 03</span>
+          </div>
+          <h2 id="heroProjectTitle">Purple Villa — Alakuko</h2>
+          <p id="heroProjectText">A completed residential milestone that turns cooperative contributions into tangible member value.</p>
+          <div class="project-meta"><span id="heroProjectLocation">Alakuko, Lagos</span><a href="#projects">View projects →</a></div>
+        </div>
+      </div>
+
+      <div class="container hero-footer">
+        <div class="hero-stats" aria-label="WEMACOOP at a glance">
+          <div><strong class="counter" data-target="1993" data-no-comma="true">1993</strong><span>Registered</span></div>
+          <div><strong class="counter" data-target="200">200</strong><span>Founding members</span></div>
+          <div><strong class="counter" data-target="3">3</strong><span>Property milestones</span></div>
+        </div>
+        <div class="hero-controls" aria-label="Project slideshow controls">
+          <button id="heroPrev" type="button" aria-label="Previous project">←</button>
+          <div class="hero-dots" id="heroDots"></div>
+          <button id="heroNext" type="button" aria-label="Next project">→</button>
+        </div>
+      </div>
+      <div class="hero-progress"><span id="heroProgress"></span></div>
+    </section>
+
+    <section class="quick-section" aria-label="Popular member services">
+      <div class="container quick-grid" id="quickGrid"></div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="container about-layout">
+        <div class="about-copy reveal">
+          <div class="section-label"><span class="section-icon icon-purple" data-icon="users"></span>Who we are</div>
+          <h2>A cooperative built by staff, for staff.</h2>
+          <p class="lead">Every contribution is part of a shared pool designed to improve member well-being and create practical financial value.</p>
+          <p>Registered as a Cooperative Multipurpose Society in 1993 with two hundred pioneering members, WEMACOOP has grown around savings, loans, shares and property acquisition for Wema Bank staff.</p>
+          <div class="trust-chips">
+            <span>Est. 1993</span><span>Staff-owned</span><span>Member-led</span>
+          </div>
+          <a class="text-link" href="#membership">See how membership works →</a>
+        </div>
+
+        <div class="cooperation-card reveal" aria-labelledby="cycleTitle">
+          <div class="cycle-head">
+            <div>
+              <div class="section-label muted"><span class="section-icon icon-gold" data-icon="repeat"></span>How it works</div>
+              <h3 id="cycleTitle">The Circle of Cooperation</h3>
+              <p>One continuous cycle turns individual contributions into shared benefit.</p>
+            </div>
+            <div class="cycle-center">Shared<br><strong>Fund</strong></div>
+          </div>
+          <div class="cycle-steps" id="cycleSteps"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section products-section" id="products">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-label"><span class="section-icon icon-teal" data-icon="layers"></span>Products & benefits</div>
+          <h2>Useful products without unnecessary complexity.</h2>
+          <p>Clear cooperative services designed around the real financial needs of salaried staff.</p>
+        </div>
+        <div class="product-tabs" id="productTabs" role="tablist" aria-label="WEMACOOP products"></div>
+        <div class="product-panel reveal" id="productPanel" role="tabpanel"></div>
+      </div>
+    </section>
+
+    <section class="section calculator-section" id="calculator">
+      <div class="container calculator-layout">
+        <div class="calculator-intro reveal">
+          <div class="section-label light"><span class="section-icon icon-gold" data-icon="calculator"></span>Plan ahead</div>
+          <h2>See an estimated repayment before you apply.</h2>
+          <p>Use the calculator for planning. Official rates, fees, eligibility rules and repayment terms should always be confirmed by the Cooperative.</p>
+          <ul class="calc-benefits">
+            <li><span data-icon="check"></span>Instant repayment estimate</li>
+            <li><span data-icon="check"></span>Adjust amount, tenure and rate</li>
+            <li><span data-icon="check"></span>No form required to calculate</li>
+          </ul>
+        </div>
+
+        <div class="calculator-shell reveal">
+          <button class="calculator-mobile-toggle" id="calculatorToggle" type="button" aria-expanded="true" aria-controls="calculatorBody">
+            <span><span data-icon="calculator"></span> Loan repayment estimator</span><em>−</em>
+          </button>
+          <div class="calculator-body" id="calculatorBody">
+            <div class="calc-field">
+              <div class="calc-label"><label for="amountRange">Loan amount</label><output id="amountOutput">₦500,000</output></div>
+              <input id="amountRange" type="range" min="50000" max="5000000" step="10000" value="500000">
+              <div class="range-scale"><span>₦50k</span><span>₦5m</span></div>
+            </div>
+            <div class="calc-field">
+              <div class="calc-label"><label for="tenureRange">Repayment period</label><output id="tenureOutput">12 months</output></div>
+              <input id="tenureRange" type="range" min="3" max="48" step="1" value="12">
+              <div class="range-scale"><span>3 months</span><span>48 months</span></div>
+            </div>
+            <div class="calc-field">
+              <div class="calc-label"><label for="rateRange">Illustrative annual flat rate</label><output id="rateOutput">12%</output></div>
+              <input id="rateRange" type="range" min="6" max="20" step="0.5" value="12">
+              <div class="range-scale"><span>6%</span><span>20%</span></div>
+            </div>
+            <div class="calc-results" aria-live="polite">
+              <div class="main-result"><span>Estimated monthly deduction</span><strong id="monthlyOutput">₦45,833</strong></div>
+              <div class="sub-result"><span>Total interest<strong id="interestOutput">₦50,000</strong></span><span>Total repayment<strong id="repaymentOutput">₦550,000</strong></span></div>
+            </div>
+            <p class="calc-disclaimer">Illustrative estimate only. This uses a flat-interest method and does not represent an official WEMACOOP offer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-heading split reveal">
+          <div>
+            <div class="section-label"><span class="section-icon icon-green" data-icon="building"></span>Property milestones</div>
+            <h2>Member contributions made visible.</h2>
+            <p>Real property milestones that reflect the long-term value of collective participation.</p>
+          </div>
+          <div class="project-nav desktop-only"><button id="projectPrev" type="button" aria-label="Previous project">←</button><button id="projectNext" type="button" aria-label="Next project">→</button></div>
+        </div>
+        <div class="project-track" id="projectTrack"></div>
+        <div class="project-dots" id="projectDots"></div>
+      </div>
+    </section>
+
+    <section class="section membership-section" id="membership">
+      <div class="container membership-card reveal">
+        <div class="membership-copy">
+          <div class="section-label light"><span class="section-icon icon-gold" data-icon="userPlus"></span>Membership</div>
+          <h2>Start with one form. Build from there.</h2>
+          <p>Membership is designed to be straightforward for eligible Wema Bank staff. The cooperative can confirm the exact eligibility and approval requirements.</p>
+          <div class="membership-actions">
+            <a class="btn btn-gold" href="#resources">Get Membership Form</a>
+            <a class="btn btn-outline-light" href="#contact">Speak to the Secretariat</a>
+          </div>
+        </div>
+        <div class="membership-steps" id="membershipSteps"></div>
+      </div>
+    </section>
+
+    <section class="section resources-section" id="resources">
+      <div class="container resources-layout">
+        <div class="resources-card reveal">
+          <div class="section-label"><span class="section-icon icon-purple" data-icon="download"></span>Member resources</div>
+          <h2>Common forms and information in one place.</h2>
+          <div class="resource-list">
+            <button class="resource-item" type="button" data-demo-resource><span data-icon="file"></span><span><strong>Membership Form</strong><small>Application / enrolment</small></span><em>Download</em></button>
+            <button class="resource-item" type="button" data-demo-resource><span data-icon="file"></span><span><strong>Loan Application Form</strong><small>Member loan request</small></span><em>Download</em></button>
+            <button class="resource-item" type="button" data-demo-resource><span data-icon="book"></span><span><strong>Cooperative By-laws</strong><small>Membership rules & governance</small></span><em>View</em></button>
+          </div>
+          <p class="preview-note">Preview links — connect the approved documents before production launch.</p>
+        </div>
+
+        <div class="faq-card reveal">
+          <div class="section-label"><span class="section-icon icon-gold" data-icon="help"></span>Good to know</div>
+          <h2>Frequently asked questions</h2>
+          <div class="faq-list" id="faqList"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-layout">
+        <div class="contact-copy reveal">
+          <div class="section-label"><span class="section-icon icon-teal" data-icon="headset"></span>Get in touch</div>
+          <h2>The Secretariat is one message away.</h2>
+          <p>Questions about membership, savings, loans or property opportunities can be directed to the cooperative team.</p>
+          <div class="contact-list">
+            <a href="mailto:info@wemacoop.com"><span data-icon="mail"></span><span><small>Email</small><strong>info@wemacoop.com</strong></span></a>
+            <div><span data-icon="map"></span><span><small>Office</small><strong>Wema Bank Staff Coop Secretariat, Marina, Lagos</strong></span></div>
+            <div><span data-icon="clock"></span><span><small>Office hours</small><strong>Mon – Fri, 8:00am – 4:00pm</strong></span></div>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm">
+          <div class="form-head"><span data-icon="message"></span><div><h3>Send a message</h3><p>Preview form — ready to connect to your backend.</p></div></div>
+          <div class="form-grid two">
+            <label>Full name<input id="contactName" type="text" autocomplete="name" placeholder="Your full name" required></label>
+            <label>Staff ID <small>(optional)</small><input type="text" placeholder="e.g. WB-00214"></label>
+          </div>
+          <div class="form-grid two">
+            <label>Email address<input type="email" autocomplete="email" placeholder="you@wemabank.com" required></label>
+            <label>Enquiry type<select><option>Membership enquiry</option><option>Loan enquiry</option><option>Savings enquiry</option><option>Property / investment</option><option>Other</option></select></label>
+          </div>
+          <label>Message<textarea rows="4" placeholder="Tell us how we can help..." required></textarea></label>
+          <button class="btn btn-dark" type="submit">Send message</button>
+          <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#home">
+          <span class="brand-mark"><img src="assets/wema-mark.webp" alt="" width="44" height="44"></span>
+          <span class="brand-copy"><strong>WEMACOOP</strong><small>Wema Bank Staff Cooperative</small></span>
+        </a>
+        <p>The multipurpose cooperative society of Wema Bank staff — saving together, borrowing responsibly and building shared value.</p>
+      </div>
+      <div><h3>Explore</h3><a href="#about">About</a><a href="#products">Products</a><a href="#projects">Projects</a><a href="#membership">Membership</a></div>
+      <div><h3>Member tools</h3><a href="#calculator">Loan Calculator</a><a href="#resources">Forms & Resources</a><a href="#resources">FAQs</a><a href="#contact">Contact</a></div>
+      <div><h3>Contact</h3><a href="mailto:info@wemacoop.com">info@wemacoop.com</a><p>Marina, Lagos, Nigeria</p><a class="footer-cta" href="#membership">Become a Member →</a></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span id="year"></span> WEMACOOP. All rights reserved.</span><div><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+  </footer>
+
+  <nav class="mobile-dock" aria-label="Mobile quick navigation">
+    <a href="#home" class="dock-item active" data-dock><span data-icon="home"></span><small>Home</small></a>
+    <a href="#products" class="dock-item" data-dock><span data-icon="layers"></span><small>Products</small></a>
+    <a href="#calculator" class="dock-item dock-fab" data-dock><span class="dock-fab-circle" data-icon="calculator"></span><small>Calculate</small></a>
+    <a href="#projects" class="dock-item" data-dock><span data-icon="building"></span><small>Projects</small></a>
+    <a href="#contact" class="dock-item" data-dock><span data-icon="headset"></span><small>Contact</small></a>
+  </nav>
+
+  <button class="to-top" id="toTop" type="button" aria-label="Back to top">↑</button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
