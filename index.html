@@ -24,6 +24,7 @@
 
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="#about">About</a>
+        <a href="#executives">Executives</a>
         <a href="#products">Products</a>
         <a href="#calculator">Calculator</a>
         <a href="#projects">Projects</a>
@@ -51,12 +52,13 @@
     </div>
     <nav class="drawer-nav" aria-label="Mobile navigation">
       <a href="#about"><span>About WEMACOOP</span><em>01</em></a>
-      <a href="#products"><span>Products & Benefits</span><em>02</em></a>
-      <a href="#calculator"><span>Loan Calculator</span><em>03</em></a>
-      <a href="#projects"><span>Property Projects</span><em>04</em></a>
-      <a href="#membership"><span>Membership</span><em>05</em></a>
-      <a href="#resources"><span>Resources & FAQs</span><em>06</em></a>
-      <a href="#contact"><span>Contact</span><em>07</em></a>
+      <a href="#executives"><span>Executive Committee</span><em>02</em></a>
+      <a href="#products"><span>Products & Benefits</span><em>03</em></a>
+      <a href="#calculator"><span>Loan Calculator</span><em>04</em></a>
+      <a href="#projects"><span>Property Projects</span><em>05</em></a>
+      <a href="#membership"><span>Membership</span><em>06</em></a>
+      <a href="#resources"><span>Resources & FAQs</span><em>07</em></a>
+      <a href="#contact"><span>Contact</span><em>08</em></a>
     </nav>
     <div class="drawer-actions">
       <a class="btn btn-outline-light" href="#contact">Member Login</a>
@@ -209,6 +211,24 @@
       </div>
     </section>
 
+    <section class="section executives-section" id="executives" aria-labelledby="executivesTitle">
+      <div class="container">
+        <div class="section-heading split reveal">
+          <div>
+            <div class="section-label"><span class="section-icon icon-gold" data-icon="leadership"></span>Executive Committee</div>
+            <h2 id="executivesTitle">Leadership members can see and reach.</h2>
+            <p>Meet the officers responsible for stewardship, governance and member service. Approved photographs and portfolio details can be managed dynamically.</p>
+          </div>
+          <a class="btn btn-outline executive-all-link" href="leadership.html">Meet the full committee →</a>
+        </div>
+        <div class="executive-track" id="executiveTrack" aria-live="polite"></div>
+        <div class="executive-footer">
+          <div class="executive-dots" id="executiveDots" aria-label="Executive carousel pagination"></div>
+          <a class="text-link mobile-executive-link" href="leadership.html">View all executives →</a>
+        </div>
+      </div>
+    </section>
+
     <section class="section membership-section" id="membership">
       <div class="container membership-card reveal">
         <div class="membership-copy">
@@ -285,7 +305,7 @@
         </a>
         <p>The multipurpose cooperative society of Wema Bank staff — saving together, borrowing responsibly and building shared value.</p>
       </div>
-      <div><h3>Explore</h3><a href="#about">About</a><a href="#products">Products</a><a href="#projects">Projects</a><a href="#membership">Membership</a></div>
+      <div><h3>Explore</h3><a href="#about">About</a><a href="leadership.html">Executives</a><a href="#products">Products</a><a href="#projects">Projects</a><a href="#membership">Membership</a></div>
       <div><h3>Member tools</h3><a href="#calculator">Loan Calculator</a><a href="#resources">Forms & Resources</a><a href="#resources">FAQs</a><a href="#contact">Contact</a></div>
       <div><h3>Contact</h3><a href="mailto:info@wemacoop.com">info@wemacoop.com</a><p>Marina, Lagos, Nigeria</p><a class="footer-cta" href="#membership">Become a Member →</a></div>
     </div>
@@ -302,6 +322,7 @@
 
   <button class="to-top" id="toTop" type="button" aria-label="Back to top">↑</button>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="executives.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

@@ -35,3 +35,31 @@ This build is a full rework of the supplied single-file prototype.
 - `assets/oko-omi-land.webp`
 
 The site is static and can be deployed directly to Cloudflare Pages/Workers static assets, GitHub Pages, Netlify or similar hosting.
+
+## v8 — Executive Committee
+
+New files/features:
+- `executives.js`: single shared source for executive names, roles, portfolios, images, display order and current/featured status.
+- `leadership.html`: dedicated Executive Committee page.
+- `leadership.js`: renders the full committee and handles responsive menu behavior.
+- `assets/executives/`: temporary portrait placeholders. Replace each with approved 4:5 WebP/JPEG portraits.
+- Homepage Executive Committee carousel with four featured officers and link to full committee.
+
+### Replacing executive placeholders
+Edit `executives.js` only. Example:
+
+```js
+{
+  id: 'president',
+  name: 'Approved Full Name',
+  role: 'President',
+  portfolio: 'Approved portfolio wording',
+  bio: 'Approved short biography...',
+  image: 'assets/executives/president.webp',
+  featured: true,
+  current: true,
+  order: 1
+}
+```
+
+Recommended portrait format: 4:5 aspect ratio, ideally 800×1000 px, exported as WebP for web performance.

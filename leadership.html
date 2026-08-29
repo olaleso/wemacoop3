@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#25102F">
+  <meta name="description" content="Meet the WEMACOOP Executive Committee and view their portfolios.">
+  <title>Executive Committee — WEMACOOP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="leadership-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="index.html#home" aria-label="WEMACOOP home">
+        <span class="brand-mark"><img src="assets/wema-mark.webp" alt="Wema Bank mark" width="44" height="44"></span>
+        <span class="brand-copy"><strong>WEMACOOP</strong><small>Wema Bank Staff Cooperative</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="index.html#about">About</a><a href="leadership.html" aria-current="page">Executives</a><a href="index.html#products">Products</a><a href="index.html#projects">Projects</a><a href="index.html#resources">Resources</a><a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost header-login" href="index.html#contact">Member Login</a>
+        <a class="btn btn-gold header-join" href="index.html#membership">Join Now</a>
+        <button class="menu-button" id="leadershipMenuOpen" type="button" aria-label="Open navigation"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="leadershipMobileMenu" aria-hidden="true">
+    <div class="drawer-top">
+      <a class="brand" href="index.html"><span class="brand-mark"><img src="assets/wema-mark.webp" alt="" width="44" height="44"></span><span class="brand-copy"><strong>WEMACOOP</strong><small>Staff Cooperative</small></span></a>
+      <button class="drawer-close" id="leadershipMenuClose" type="button" aria-label="Close navigation">×</button>
+    </div>
+    <nav class="drawer-nav" aria-label="Mobile navigation">
+      <a href="index.html#about"><span>About WEMACOOP</span><em>01</em></a>
+      <a href="leadership.html"><span>Executive Committee</span><em>02</em></a>
+      <a href="index.html#products"><span>Products & Benefits</span><em>03</em></a>
+      <a href="index.html#projects"><span>Property Projects</span><em>04</em></a>
+      <a href="index.html#resources"><span>Resources & FAQs</span><em>05</em></a>
+      <a href="index.html#contact"><span>Contact</span><em>06</em></a>
+    </nav>
+    <div class="drawer-actions"><a class="btn btn-outline-light" href="index.html#contact">Member Login</a><a class="btn btn-gold" href="index.html#membership">Become a Member</a></div>
+  </div>
+  <div class="drawer-overlay" id="leadershipOverlay"></div>
+
+  <main id="main">
+    <section class="leadership-hero">
+      <div class="container">
+        <div class="section-label light"><span class="section-icon icon-gold">★</span>Leadership & governance</div>
+        <h1>The people entrusted with cooperative stewardship.</h1>
+        <p>The Executive Committee supports governance, financial stewardship, member service and the day-to-day direction of WEMACOOP.</p>
+        <div class="leadership-hero-actions"><a class="btn btn-gold" href="#currentCommittee">Meet the committee</a><a class="btn btn-outline-light" href="index.html">Back to homepage</a></div>
+        <div class="leadership-note">ⓘ The profiles below use temporary names, portraits and portfolio summaries. Replace them with Executive Committee-approved information before production launch.</div>
+      </div>
+    </section>
+
+    <section class="section" id="currentCommittee">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Current committee</div>
+          <h2>Executive Committee</h2>
+          <p>Profiles are rendered from one shared data source, making future updates straightforward when committee membership changes.</p>
+        </div>
+        <div class="leadership-grid" id="leadershipGrid"></div>
+      </div>
+    </section>
+
+    <section class="section membership-section">
+      <div class="container membership-card">
+        <div class="membership-copy">
+          <div class="section-label light">Governance records</div>
+          <h2>Built to support future committee changes.</h2>
+          <p>The data structure supports display order, featured executives and current/former status so future elections do not require redesigning the site.</p>
+        </div>
+        <div class="membership-actions"><a class="btn btn-gold" href="index.html#contact">Contact the Secretariat</a><a class="btn btn-outline-light" href="index.html#resources">Member resources</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand"><a class="brand" href="index.html"><span class="brand-mark"><img src="assets/wema-mark.webp" alt="" width="44" height="44"></span><span class="brand-copy"><strong>WEMACOOP</strong><small>Wema Bank Staff Cooperative</small></span></a><p>The multipurpose cooperative society of Wema Bank staff.</p></div>
+      <div><h3>Explore</h3><a href="index.html#about">About</a><a href="leadership.html">Executives</a><a href="index.html#products">Products</a><a href="index.html#projects">Projects</a></div>
+      <div><h3>Member tools</h3><a href="index.html#calculator">Loan Calculator</a><a href="index.html#resources">Forms & Resources</a><a href="index.html#contact">Contact</a></div>
+      <div><h3>Contact</h3><a href="mailto:info@wemacoop.com">info@wemacoop.com</a><p>Marina, Lagos, Nigeria</p></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span id="year"></span> WEMACOOP. All rights reserved.</span></div>
+  </footer>
+
+  <script src="executives.js"></script>
+  <script src="leadership.js"></script>
+</body>
+</html>

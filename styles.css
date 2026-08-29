@@ -123,3 +123,80 @@ svg.ui-icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.
 
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.hero-slide,.project-card,.quick-card,.btn{transition:none}.hero-progress span.animate{animation:none;width:100%}}
 :focus-visible{outline:3px solid var(--gold-400);outline-offset:3px;border-radius:5px}
+
+/* ===================== EXECUTIVE COMMITTEE ===================== */
+.executives-section{background:linear-gradient(180deg,#fff 0%,var(--purple-50) 100%)}
+.executives-section .section-heading{align-items:flex-end}
+.executive-all-link{align-self:flex-end;flex:0 0 auto}
+.executive-track{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.executive-card{min-width:0;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.executive-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:transparent}
+.executive-photo{position:relative;aspect-ratio:4/5;overflow:hidden;background:#eee7f2}
+.executive-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .45s ease}
+.executive-card:hover .executive-photo img{transform:scale(1.025)}
+.executive-role{position:absolute;left:14px;bottom:14px;max-width:calc(100% - 28px);padding:7px 11px;border-radius:999px;background:rgba(37,16,47,.84);backdrop-filter:blur(8px);color:#fff;font-size:10px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.executive-body{position:relative;padding:18px}
+.executive-index{position:absolute;right:18px;top:18px;color:var(--gold-600);font-family:'Fraunces',serif;font-size:12px;font-weight:700}
+.executive-body h3{padding-right:34px;font-size:20px;line-height:1.2}
+.executive-portfolio{display:flex;gap:7px;align-items:flex-start;margin-top:10px;color:var(--ink-soft);font-size:11.5px;line-height:1.5}
+.executive-portfolio svg{width:16px;height:16px;color:var(--gold-700);flex:0 0 auto;margin-top:1px}
+.executive-body>a{display:inline-flex;margin-top:15px;color:var(--purple-700);font-size:11.5px;font-weight:800}
+.executive-footer{display:none;align-items:center;justify-content:space-between;gap:18px;margin-top:14px}
+.executive-dots{display:flex;gap:7px}
+.executive-dots button{width:8px;height:8px;padding:0;border:0;border-radius:999px;background:#d8cddd;transition:.2s}
+.executive-dots button.active{width:24px;background:var(--purple-700)}
+.mobile-executive-link{display:none;margin-top:0}
+
+/* Leadership page */
+.leadership-page{background:var(--cream)}
+.leadership-hero{padding:142px 0 74px;background:radial-gradient(90% 130% at 80% 0%,rgba(203,156,62,.16),transparent 55%),linear-gradient(135deg,var(--purple-800),var(--purple-950));color:#fff}
+.leadership-hero .section-label{color:var(--gold-300)}
+.leadership-hero h1{max-width:800px;color:#fff;font-size:clamp(42px,6vw,70px);line-height:1.02}
+.leadership-hero p{max-width:680px;margin-top:18px;color:rgba(255,255,255,.72);font-size:16px}
+.leadership-hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.leadership-note{margin-top:24px;display:inline-flex;gap:9px;align-items:flex-start;max-width:700px;padding:12px 15px;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.67);font-size:11.5px;line-height:1.55}
+.leadership-note svg{width:18px;height:18px;flex:0 0 auto;color:var(--gold-300)}
+.leadership-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.leadership-profile{scroll-margin-top:100px;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.leadership-profile:target{outline:3px solid rgba(203,156,62,.45);outline-offset:4px}
+.leadership-profile .executive-photo{aspect-ratio:4/5}
+.leadership-profile-body{padding:20px}
+.leadership-profile-body .executive-role-label{display:block;color:var(--gold-700);font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+.leadership-profile-body h2{margin-top:6px;font-size:22px}
+.leadership-profile-body h3{margin-top:14px;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:0;font-size:11px;text-transform:uppercase;color:var(--purple-700)}
+.leadership-profile-body p{margin-top:6px;font-size:12px;line-height:1.65}
+.leadership-page .site-header{background:rgba(37,16,47,.96)}
+.leadership-page .site-header.scrolled{background:rgba(37,16,47,.96)}
+
+@media(max-width:1080px){
+  .executive-track{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .leadership-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:720px){
+  .executives-section .section-heading.split{display:block}
+  .executive-all-link{display:none}
+  .executive-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:2px 2px 10px}
+  .executive-track::-webkit-scrollbar{display:none}
+  .executive-card{flex:0 0 78%;scroll-snap-align:start}
+  .executive-footer{display:flex}
+  .mobile-executive-link{display:inline-flex}
+  .leadership-hero{padding:118px 0 58px}
+  .leadership-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+  .leadership-profile-body{padding:15px}
+  .leadership-profile-body h2{font-size:18px}
+}
+@media(max-width:440px){
+  .executive-card{flex-basis:84%}
+  .leadership-grid{grid-template-columns:1fr}
+}
+
+#executives{scroll-margin-top:90px}
+
+/* Executive section utility refinements */
+.btn-outline{color:var(--purple-700);border-color:var(--line);background:#fff}
+.btn-outline:hover{border-color:var(--purple-500);background:var(--purple-50)}
+@media(max-width:1200px) and (min-width:1081px){
+  .desktop-nav{display:none}
+  .header-login{display:none}
+  .menu-button{display:block}
+}
