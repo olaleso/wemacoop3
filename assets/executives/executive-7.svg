@@ -1,11 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-labelledby="t d">
-<title id="t">Executive portrait placeholder</title><desc id="d">Placeholder portrait for Welfare Officer; replace with approved executive photograph.</desc>
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4A1D6E"/><stop offset="1" stop-color="#25102F"/></linearGradient></defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Executive portrait placeholder">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F6EFFB"/><stop offset="1" stop-color="#E8D8F3"/></linearGradient></defs>
 <rect width="800" height="1000" fill="url(#g)"/>
-<circle cx="400" cy="340" r="150" fill="#F3EAFB" opacity=".95"/>
-<path d="M145 870c32-190 133-290 255-290s223 100 255 290" fill="#F3EAFB" opacity=".95"/>
-<circle cx="650" cy="150" r="95" fill="#D9AF5B" opacity=".18"/>
-<circle cx="160" cy="820" r="140" fill="#8B4CC0" opacity=".17"/>
-<text x="400" y="930" text-anchor="middle" fill="#E8C877" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="2">WELFARE OFFICER</text>
-<text x="400" y="430" text-anchor="middle" fill="#4A1D6E" font-family="Georgia, serif" font-size="74" font-weight="700">W O</text>
+<circle cx="400" cy="360" r="142" fill="#6F2C86" opacity=".14"/>
+<circle cx="400" cy="330" r="92" fill="#6F2C86" opacity=".50"/>
+<path d="M220 760c18-160 92-244 180-244s162 84 180 244" fill="#6F2C86" opacity=".50"/>
+<rect x="140" y="820" width="520" height="2" fill="#C6A45D" opacity=".7"/>
+<text x="400" y="880" text-anchor="middle" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#4A1D6E">Welfare Officer</text>
+<text x="400" y="922" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#6F6278">Photo to be supplied</text>
 </svg>

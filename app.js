@@ -41,10 +41,10 @@ const projects = [
 ];
 
 const services = [
-  {title:'Savings',text:'Build a disciplined monthly balance.',icon:'piggy',tone:'purple',href:'#products'},
-  {title:'Loans',text:'Member-friendly credit for real needs.',icon:'wallet',tone:'teal',href:'#calculator'},
-  {title:'Shares',text:'Participate in annual surplus returns.',icon:'chart',tone:'gold',href:'#products'},
-  {title:'Properties',text:'Explore cooperative property milestones.',icon:'house',tone:'green',href:'#projects'}
+  {title:'Savings',text:'Build a disciplined monthly balance.',icon:'piggy',tone:'purple',href:'products.html#savings'},
+  {title:'Loans',text:'Member-friendly credit for real needs.',icon:'wallet',tone:'teal',href:'products.html#loan-products'},
+  {title:'Shares',text:'Participate in annual surplus returns.',icon:'chart',tone:'gold',href:'products.html#shares'},
+  {title:'Properties',text:'Explore cooperative property milestones.',icon:'house',tone:'green',href:'projects.html'}
 ];
 
 const productData = [
@@ -98,7 +98,7 @@ services.forEach(s=>{ const a=document.createElement('a'); a.href=s.href; a.clas
 cycleData.forEach(s=>{ const d=document.createElement('div'); d.className='cycle-step'; d.innerHTML=`<span class="step-icon">${icon(s.icon)}</span><strong>${s.title}</strong><small>${s.sub}</small>`; $('#cycleSteps').appendChild(d); });
 
 // Product tabs/panel
-function renderProduct(index){ const p=productData[index]; $$('.product-tab').forEach((b,i)=>{b.classList.toggle('active',i===index);b.setAttribute('aria-selected',i===index?'true':'false')}); $('#productPanel').innerHTML=`<div class="product-content"><span class="product-icon">${icon(p.icon)}</span><div><h3>${p.title}</h3><p>${p.text}</p><ul class="product-features">${p.features.map(f=>`<li>${icon('check')}<span>${f}</span></li>`).join('')}</ul></div></div><div class="product-cta"><p>Need more detail? The Cooperative can confirm the current rules and approved terms.</p><a class="btn btn-dark" href="${p.id==='loans'?'#calculator':p.id==='property'?'#projects':'#contact'}">${p.cta}</a></div>`; }
+function renderProduct(index){ const p=productData[index]; $$('.product-tab').forEach((b,i)=>{b.classList.toggle('active',i===index);b.setAttribute('aria-selected',i===index?'true':'false')}); $('#productPanel').innerHTML=`<div class="product-content"><span class="product-icon">${icon(p.icon)}</span><div><h3>${p.title}</h3><p>${p.text}</p><ul class="product-features">${p.features.map(f=>`<li>${icon('check')}<span>${f}</span></li>`).join('')}</ul></div></div><div class="product-cta"><p>Need more detail? The Cooperative can confirm the current rules and approved terms.</p><a class="btn btn-dark" href="${p.id==='loans'?'#calculator':p.id==='property'?'projects.html':'products.html#'+p.id}">${p.cta}</a></div>`; }
 productData.forEach((p,i)=>{ const b=document.createElement('button'); b.type='button'; b.className='product-tab'+(i===0?' active':''); b.setAttribute('role','tab'); b.setAttribute('aria-selected',i===0?'true':'false'); b.textContent=p.label; b.addEventListener('click',()=>renderProduct(i)); $('#productTabs').appendChild(b); }); renderProduct(0);
 
 // Calculator
@@ -110,7 +110,7 @@ const calcShell=$('.calculator-shell'); $('#calculatorToggle').addEventListener(
 if(matchMedia('(max-width:760px)').matches){calcShell.classList.add('collapsed');$('#calculatorToggle').setAttribute('aria-expanded','false');$('#calculatorToggle em').textContent='+';}
 
 // Project cards
-projects.forEach((p,i)=>{ const card=document.createElement('article'); card.className='project-card'; card.innerHTML=`<div class="project-image"><img src="${p.image}" alt="${p.title}" loading="lazy"><span class="project-badge">${p.status}</span></div><div class="project-body"><h3>${p.title}</h3><div class="project-location">${icon('pin')}<span>${p.location}</span></div><p>${p.text}</p><a href="#contact">Enquire about project →</a></div>`; $('#projectTrack').appendChild(card); const dot=document.createElement('button');dot.type='button';dot.setAttribute('aria-label',`Show ${p.title}`);if(i===0)dot.classList.add('active');dot.addEventListener('click',()=>card.scrollIntoView({behavior:'smooth',inline:'start',block:'nearest'}));$('#projectDots').appendChild(dot); });
+projects.forEach((p,i)=>{ const card=document.createElement('article'); card.className='project-card'; card.innerHTML=`<div class="project-image"><img src="${p.image}" alt="${p.title}" loading="lazy"><span class="project-badge">${p.status}</span></div><div class="project-body"><h3>${p.title}</h3><div class="project-location">${icon('pin')}<span>${p.location}</span></div><p>${p.text}</p><a href="projects.html#directory">View full project →</a></div>`; $('#projectTrack').appendChild(card); const dot=document.createElement('button');dot.type='button';dot.setAttribute('aria-label',`Show ${p.title}`);if(i===0)dot.classList.add('active');dot.addEventListener('click',()=>card.scrollIntoView({behavior:'smooth',inline:'start',block:'nearest'}));$('#projectDots').appendChild(dot); });
 const track=$('#projectTrack'); function projectStep(dir){const card=$('.project-card',track);if(!card)return;track.scrollBy({left:dir*(card.getBoundingClientRect().width+18),behavior:'smooth'});} $('#projectPrev').addEventListener('click',()=>projectStep(-1));$('#projectNext').addEventListener('click',()=>projectStep(1)); track.addEventListener('scroll',()=>{const cards=$$('.project-card',track);const first=cards[0];if(!first)return;const gap=18;const idx=Math.max(0,Math.min(cards.length-1,Math.round(track.scrollLeft/(first.offsetWidth+gap)))); $$('#projectDots button').forEach((d,i)=>d.classList.toggle('active',i===idx));},{passive:true});
 
 // Membership

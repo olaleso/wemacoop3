@@ -1,73 +1,40 @@
-# WEMACOOP Premium Rework v7
+# WEMACOOP Premium v10
 
-This build is a full rework of the supplied single-file prototype.
+This build extends v9 with a dedicated, responsive Resources & Downloads centre while preserving the existing homepage, Products, Projects and Executive Committee pages.
 
-## What changed
-- Replaced the static text-only hero with a large, photo-led project carousel.
-- Preserved the distinctive purple/gold editorial feel, while adding teal and green accents for clearer visual hierarchy.
-- Kept the Fraunces + Plus Jakarta Sans pairing, but tightened sizes, weights, spacing and alignment.
-- Simplified the desktop navigation and improved the mobile drawer.
-- Added a mobile bottom dock for the highest-value actions.
-- Converted the product area into dynamic tabs.
-- Retained and redesigned the live loan calculator with clearer disclaimer language.
-- Replaced the fragile circular JS orbit with a responsive cooperation-cycle component.
-- Rebuilt the property milestones as responsive cards and a swipeable carousel.
-- Added compact resources + FAQ panels instead of giving each one a very long section.
-- Improved accessibility: semantic buttons, aria-expanded, visible focus states, reduced-motion support, real counter values in the DOM.
-- Removed repeated inline/base64 project images and logo data; assets are cached as separate WebP files.
-- Reworked the contact form so it does not falsely claim an email was sent in this static preview.
+## New in v10
 
-## Important content checks before production
-1. Confirm the Secretariat address and phone details.
-2. Confirm the wording and attribution of the 1993 Society Charter quote if it will be reused.
-3. Confirm actual loan rates, fees, qualifying periods and maximum tenures.
-4. Replace preview resource buttons with approved downloadable documents.
-5. Connect the contact form to a real backend/email service.
-6. Confirm social media links and privacy/terms pages.
+- `resources.html` — searchable/filterable member resource centre.
+- `resources-data.js` — single front-end data source for forms, governance documents and online guides.
+- `resources.js` — directory rendering, search and category filtering.
+- Homepage resource preview now links into the resource centre instead of simulating document downloads.
+- Navigation/footer links across the site now point to the dedicated resource page.
+- Desktop homepage navigation simplified to About, Executives, Products, Projects, Resources and Contact.
+- Document-control pattern added for future admin-managed files (version, approval date, owner, publication status).
+- Official files are never presented as downloadable until an approved file is actually supplied.
 
-## Files
-- `index.html`
-- `styles.css`
-- `app.js`
-- `assets/wema-mark.webp`
-- `assets/purple-villa.webp`
-- `assets/somolu-flats.webp`
-- `assets/oko-omi-land.webp`
+## Resource behaviour
 
-The site is static and can be deployed directly to Cloudflare Pages/Workers static assets, GitHub Pages, Netlify or similar hosting.
+Resources use one of two statuses:
 
-## v8 — Executive Committee
+- `online` — links to a live page/guide already available in the website.
+- `pending` — no downloadable file is claimed; the CTA directs the member to the Secretariat until an approved file is provided.
 
-New files/features:
-- `executives.js`: single shared source for executive names, roles, portfolios, images, display order and current/featured status.
-- `leadership.html`: dedicated Executive Committee page.
-- `leadership.js`: renders the full committee and handles responsive menu behavior.
-- `assets/executives/`: temporary portrait placeholders. Replace each with approved 4:5 WebP/JPEG portraits.
-- Homepage Executive Committee carousel with four featured officers and link to full committee.
+When WEMACOOP supplies official PDFs/forms, update the relevant object in `resources-data.js`, add the file under an assets/documents folder, and change the resource status/action/href.
 
-### Replacing executive placeholders
-Edit `executives.js` only. Example:
+## Deployment
 
-```js
-{
-  id: 'president',
-  name: 'Approved Full Name',
-  role: 'President',
-  portfolio: 'Approved portfolio wording',
-  bio: 'Approved short biography...',
-  image: 'assets/executives/president.webp',
-  featured: true,
-  current: true,
-  order: 1
-}
-```
+Keep these files at the same repository root as `wrangler.jsonc`. The existing Cloudflare Workers static-assets configuration remains valid.
 
-Recommended portrait format: 4:5 aspect ratio, ideally 800×1000 px, exported as WebP for web performance.
+## Recommended next phase
 
-## Cloudflare Workers deployment fix
+The public website now has the main content architecture required for an admin backend. The next major phase should be the Admin Portal / CMS layer for:
 
-This package includes `wrangler.jsonc` for Cloudflare Workers Static Assets. The site is a static HTML/CSS/JavaScript application and therefore does not need a Worker `main` script. Wrangler is configured to upload the repository root as the static asset directory.
+- Executives
+- Products and loan schemes
+- Projects
+- Resources/documents
+- News/announcements
+- Contact enquiries
 
-For a production branch, Cloudflare Workers Builds can use the default `npx wrangler deploy` command. For preview/non-production branches, the default `npx wrangler versions upload` command will now work because Wrangler can resolve the `assets.directory` from `wrangler.jsonc`.
-
-Keep `wrangler.jsonc` in the same directory that Cloudflare uses as the Workers Builds root directory.
+Do not publish official loan rates, approved forms, governance documents or executive details until supplied/approved by WEMACOOP.

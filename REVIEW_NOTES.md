@@ -1,32 +1,20 @@
-# Design & Engineering Review Notes
+# v10 Review Notes
 
-## Strong ideas retained from the supplied version
-- Premium purple/gold brand direction.
-- Serif display typography for a distinctive institutional feel.
-- Loan calculator.
-- Cooperative-cycle concept.
-- Membership onboarding flow.
-- Property milestones.
-- Mobile quick navigation concept.
+## Resource centre design decisions
 
-## Main issues found in the supplied version
-- The entire site, including the logo and large property photography, was embedded in one HTML file using base64 data. This makes the file difficult to maintain and reduces browser caching efficiency.
-- The landing page had many large full sections, making mobile scrolling long again.
-- Desktop navigation contained seven items plus a CTA, which can become crowded before the 1220px breakpoint.
-- Inline styles were repeated heavily, making consistent typography/spacing harder to maintain.
-- Counters showed `0` in source HTML and relied on JavaScript to populate actual values.
-- FAQ questions were clickable `div` elements instead of semantic buttons.
-- The contact form displayed a success message even though no backend request was made.
-- The loan rate slider can look like an official published rate unless the illustrative nature is made prominent.
-- The orbit visualization is visually interesting, but dynamically positioning five nodes with JavaScript is more fragile than a responsive CSS component.
-- Some contact/charter details should be verified before production.
+1. The homepage remains concise. Only a small resources preview remains there; the full library lives on `resources.html`.
+2. Search and category filters reduce long-scroll behaviour on mobile and desktop.
+3. The website does not fake downloads. Existing approved documents must be supplied before a button becomes a real download.
+4. The resource data is separated from HTML so a future API can replace `resources-data.js` without redesigning the page.
+5. A document-control section demonstrates the metadata the future admin portal should manage: version, approval date, owner and publication status.
+6. Mobile form/search inputs use a 16px font to avoid unwanted browser zoom.
+7. Resource cards stack to one column on small screens and preserve large touch targets.
 
-## New design strategy
-- Project-led first impression.
-- Fewer, denser sections rather than many long homepage blocks.
-- 8px-based spacing rhythm.
-- One primary display serif + one UI/body sans serif.
-- Purple as primary brand colour, gold for premium/CTA, teal for credit/tools, green for property/growth.
-- Stronger semantic HTML and accessibility.
-- Data-driven JavaScript for projects, products, FAQs and membership steps.
-- Separate cacheable media assets.
+## Content requiring WEMACOOP confirmation before production
+
+- Membership Application Form
+- Loan Application Form
+- Cooperative By-laws
+- Any annual/AGM/circular documents later added
+- Official contact details and office address
+- Product rates, limits, fees and eligibility rules
