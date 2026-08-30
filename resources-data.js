@@ -1,0 +1,80 @@
+window.WEMACOOP_RESOURCES = [
+  {
+    id: 'membership-form',
+    title: 'Membership Application Form',
+    category: 'Forms',
+    type: 'Form',
+    description: 'Application and enrolment form for eligible staff who want to join the Cooperative.',
+    icon: 'users',
+    status: 'pending',
+    statusLabel: 'Official file pending',
+    actionLabel: 'Request from Secretariat',
+    href: 'index.html#contact',
+    featured: true
+  },
+  {
+    id: 'loan-form',
+    title: 'Loan Application Form',
+    category: 'Forms',
+    type: 'Form',
+    description: 'The approved member loan request form. Final requirements should be confirmed before submission.',
+    icon: 'wallet',
+    status: 'pending',
+    statusLabel: 'Official file pending',
+    actionLabel: 'Request from Secretariat',
+    href: 'index.html#contact',
+    featured: true
+  },
+  {
+    id: 'bylaws',
+    title: 'Cooperative By-laws',
+    category: 'Governance',
+    type: 'Governance',
+    description: 'The Society’s approved rules covering membership, governance, meetings and cooperative operations.',
+    icon: 'book',
+    status: 'pending',
+    statusLabel: 'Approved copy required',
+    actionLabel: 'Request from Secretariat',
+    href: 'index.html#contact',
+    featured: true
+  },
+  {
+    id: 'product-guide',
+    title: 'Products & Schemes Guide',
+    category: 'Guides',
+    type: 'Online guide',
+    description: 'Browse the current website guide to WEMACOOP savings, loan, shares and property product families.',
+    icon: 'layers',
+    status: 'online',
+    statusLabel: 'Available online',
+    actionLabel: 'Open guide',
+    href: 'products.html',
+    featured: false
+  },
+  {
+    id: 'project-directory',
+    title: 'Property Project Directory',
+    category: 'Guides',
+    type: 'Online guide',
+    description: 'View Purple Villa, Somolu Serviced Flats and Oko-Omi Land Acquisition in the project directory.',
+    icon: 'building',
+    status: 'online',
+    statusLabel: 'Available online',
+    actionLabel: 'View projects',
+    href: 'projects.html',
+    featured: false
+  },
+  {
+    id: 'leadership-directory',
+    title: 'Executive Committee Directory',
+    category: 'Governance',
+    type: 'Online directory',
+    description: 'View the Executive Committee structure, portfolios and leadership profiles.',
+    icon: 'users',
+    status: 'online',
+    statusLabel: 'Available online',
+    actionLabel: 'View leadership',
+    href: 'leadership.html',
+    featured: false
+  }
+];
