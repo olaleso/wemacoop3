@@ -1,20 +1,34 @@
-# v10 Review Notes
+# WEMACOOP Premium v12 — implementation notes
 
-## Resource centre design decisions
+## Completed in this phase
 
-1. The homepage remains concise. Only a small resources preview remains there; the full library lives on `resources.html`.
-2. Search and category filters reduce long-scroll behaviour on mobile and desktop.
-3. The website does not fake downloads. Existing approved documents must be supplied before a button becomes a real download.
-4. The resource data is separated from HTML so a future API can replace `resources-data.js` without redesigning the page.
-5. A document-control section demonstrates the metadata the future admin portal should manage: version, approval date, owner and publication status.
-6. Mobile form/search inputs use a 16px font to avoid unwanted browser zoom.
-7. Resource cards stack to one column on small screens and preserve large touch targets.
+- Member Management API and responsive Admin UI.
+- Member search, filter and pagination.
+- Single-member create/edit workflow.
+- CSV bulk import with all-or-nothing validation.
+- Active/Suspended/Exited lifecycle instead of destructive deletion.
+- First-time activation re-send, portal unlock and password reset admin actions.
+- Member administration audit trail.
+- Linked Identity account synchronization when member number/email/name/phone changes.
+- Immediate invalidation of suspended/exited member sessions through Identity security-stamp validation.
+- Forced password-change screen for seeded/temporary admin passwords.
+- CSRF-compatible `FormData` upload support.
+- Escaped API-rendered HTML in the member/admin dashboards.
+- Development launch profile aligned with `portal/config.js` (`https://localhost:7080`).
 
-## Content requiring WEMACOOP confirmation before production
+## Intentionally not implemented yet
 
-- Membership Application Form
-- Loan Application Form
-- Cooperative By-laws
-- Any annual/AGM/circular documents later added
-- Official contact details and office address
-- Product rates, limits, fees and eligibility rules
+- Admin MFA.
+- Production email provider.
+- Member hard delete.
+- Savings/share ledger administration.
+- Loan application approval workflow.
+- Full transaction statement export.
+- Excel `.xlsx` direct import. v12 accepts CSV exported from Excel.
+- Content CMS for executives/products/projects/resources/news.
+
+## Important deployment note
+
+Cloudflare is serving the static site and portal UI only. The ASP.NET Core API under `backend/` is excluded by `.assetsignore` and must be hosted separately, or proxied into `/api/*`.
+
+Do not expect live Member/Admin authentication merely from committing v12 to the current Cloudflare static repository. Demo pages will work immediately; real authentication requires PostgreSQL + the ASP.NET Core API.

@@ -1,40 +1,108 @@
-# WEMACOOP Premium v10
+# WEMACOOP Premium v12 — Member Management Backend
 
-This build extends v9 with a dedicated, responsive Resources & Downloads centre while preserving the existing homepage, Products, Projects and Executive Committee pages.
+This build continues the v11 portal/backend foundation and implements the first operational Admin workflow: **Member Management**.
 
-## New in v10
+The public v10/v11 website remains intact. The backend is still deployed separately from Cloudflare static assets.
 
-- `resources.html` — searchable/filterable member resource centre.
-- `resources-data.js` — single front-end data source for forms, governance documents and online guides.
-- `resources.js` — directory rendering, search and category filtering.
-- Homepage resource preview now links into the resource centre instead of simulating document downloads.
-- Navigation/footer links across the site now point to the dedicated resource page.
-- Desktop homepage navigation simplified to About, Executives, Products, Projects, Resources and Contact.
-- Document-control pattern added for future admin-managed files (version, approval date, owner, publication status).
-- Official files are never presented as downloadable until an approved file is actually supplied.
+## New in v12
 
-## Resource behaviour
+### Admin Member Management
+- Dedicated responsive page: `portal/admin/members.html`
+- Search by member number, name, email, staff ID or department
+- Filter by cooperative status and portal activation state
+- Server-side pagination
+- Create member
+- Edit member details
+- Change status: Active / Suspended / Exited
+- Send/re-send first-time portal activation
+- Unlock a locked portal account
+- Generate password-reset instructions
+- CSV bulk member import with all-or-nothing validation
+- Downloadable CSV import template
+- Member-specific and global administration audit trail
+- No hard-delete endpoint: member and financial history is retained
 
-Resources use one of two statuses:
+### Authentication improvements
+- Added mandatory password-change flow for accounts created with `MustChangePassword=true`
+- Initial admin can no longer continue indefinitely with the seeded/temporary password
+- Added `portal/change-password.html`
+- Added authenticated `POST /api/auth/password/change`
+- Password-reset completion clears the forced-password-change flag
+- New activation request invalidates older unused activation tokens
+- Security stamp validation runs on every authenticated request so suspending/exiting a member invalidates old login cookies immediately
 
-- `online` — links to a live page/guide already available in the website.
-- `pending` — no downloadable file is claimed; the CTA directs the member to the Secretariat until an approved file is provided.
+### Security/quality improvements
+- Member/admin HTML rendering now escapes API-provided text before inserting it into HTML
+- JSON enum strings are supported consistently by the API
+- ASP.NET Core Problem Details / exception handling enabled
+- Member changes and linked Identity changes use database transactions where needed
+- CSV imports reject member numbers/emails already present in either the member register or Identity store
+- FormData uploads now work correctly with the CSRF-aware `PortalApi` client
 
-When WEMACOOP supplies official PDFs/forms, update the relevant object in `resources-data.js`, add the file under an assets/documents folder, and change the resource status/action/href.
+## Important files
 
-## Deployment
+```text
+portal/admin/members.html
+portal/admin/members.js
+portal/change-password.html
+assets/templates/member-import-template.csv
 
-Keep these files at the same repository root as `wrangler.jsonc`. The existing Cloudflare Workers static-assets configuration remains valid.
+backend/WemaCoop.Api/Controllers/AdminMembersController.cs
+backend/WemaCoop.Api/Contracts/AdminMemberContracts.cs
+backend/WemaCoop.Api/Models/Member.cs
+backend/WemaCoop.Api/Data/AppDbContext.cs
+backend/MEMBER_MANAGEMENT.md
+```
 
-## Recommended next phase
+## Preview without backend
 
-The public website now has the main content architecture required for an admin backend. The next major phase should be the Admin Portal / CMS layer for:
+Admin dashboard:
 
-- Executives
-- Products and loan schemes
-- Projects
-- Resources/documents
-- News/announcements
-- Contact enquiries
+```text
+/portal/admin/index.html?demo=1
+```
 
-Do not publish official loan rates, approved forms, governance documents or executive details until supplied/approved by WEMACOOP.
+Member management:
+
+```text
+/portal/admin/members.html?demo=1
+```
+
+Member dashboard:
+
+```text
+/portal/member/index.html?demo=1
+```
+
+Demo mode is deliberately read-only.
+
+## Backend deployment
+
+The `backend/` directory is excluded from Cloudflare static asset deployment by `.assetsignore`.
+
+Recommended topology:
+
+```text
+www.wemacoop.com      -> Cloudflare static website
+portal.wemacoop.com   -> static portal UI
+api.wemacoop.com      -> ASP.NET Core API
+                           |
+                           +-> PostgreSQL
+```
+
+For the cleanest cookie setup, proxy `/api/*` through the same first-party domain or configure `portal.wemacoop.com` and `api.wemacoop.com` deliberately as same-site production services.
+
+See `backend/README.md` and `backend/MEMBER_MANAGEMENT.md` for the local migration/test process.
+
+## Still required before production
+
+- Production email delivery provider
+- Admin MFA
+- Secrets manager / environment secrets
+- TLS and production reverse proxy configuration
+- Database backups and restore testing
+- Approved WEMACOOP member data import
+- Data retention/privacy policy
+- Full financial ledger/import integration
+- Loan application approval workflow
+- CMS modules for Executives, Products, Projects, Resources and News
