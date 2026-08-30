@@ -1,0 +1,11 @@
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: wemacoop_dev
+      POSTGRES_USER: wemacoop
+      POSTGRES_PASSWORD: wemacoop_dev
+    ports: ["5432:5432"]
+    volumes: ["wemacoop_pg:/var/lib/postgresql/data"]
+volumes:
+  wemacoop_pg:
